@@ -1,0 +1,22 @@
+/* убираем отступы у страницы */
+html, body { height: 100%; margin: 0; background:#02030a; color:#e6f6ff; }
+
+/* делаем секции прозрачными, чтобы через них был виден канвас */
+section.spacer {
+  min-height: 300vh;
+  display: grid; place-items: center;
+  padding: 4rem 1rem;
+  background: transparent; /* важно */
+}
+
+/* наш канвас — фиксированный фоновый слой ПОВЕРХ фона body */
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;          /* было -1 — из-за этого он уходил под фон body */
+  pointer-events: none;/* чтобы клики проходили сквозь него */
+}
+
+/* (необязательно) просто базовая типографика */
+body { font-family: system-ui, sans-serif; color: #0e0e0e; }
+
